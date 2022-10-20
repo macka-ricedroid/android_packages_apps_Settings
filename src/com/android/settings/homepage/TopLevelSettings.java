@@ -99,6 +99,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
                return R.xml.top_level_settings_aosp;
 	   case 4:
                return R.xml.top_level_settings_mt;
+	   case 5:
+               return R.xml.top_level_settings_card;
            default:
                return R.xml.top_level_settings;
         }
@@ -217,7 +219,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         int tintColor = Utils.getHomepageIconColor(getContext());
         iteratePreferences(preference -> {
             Drawable icon = preference.getIcon();
-            if (mDashBoardStyle == 3) {
+            if (mDashBoardStyle == 3 || mDashBoardStyle == 5) {
               if (icon != null) {
                   icon.setTint(tintColor);
               }
@@ -356,6 +358,39 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             	// do nothing
             } else {
                 preference.setLayoutResource(R.layout.top_level_preference_mt_bottom);
+            }
+            break;
+	case 5:
+	    if (key.equals("top_level_usercard")){
+	        preference.setLayoutResource(R.layout.usercard_round);
+	    } else if (key.equals("usercard_space")){
+                preference.setLayoutResource(R.layout.usercard_space);
+            } else if (key.equals("top_level_network")
+            	|| key.equals("top_level_rice")
+            	|| key.equals("top_level_apps")
+            	|| key.equals("top_level_accessibility")
+            	|| key.equals("top_level_emergency")
+            	|| key.equals("top_level_system")){
+                preference.setLayoutResource(R.layout.top_level_preference_top_card);
+            } else if (key.equals("top_level_battery")
+            	|| key.equals("top_level_display")
+            	|| key.equals("top_level_security")
+            	|| key.equals("top_level_privacy")
+            	|| key.equals("top_level_storage")
+            	|| key.equals("top_level_notifications")){
+                preference.setLayoutResource(R.layout.top_level_preference_middle_card);
+            } else if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")
+            	|| key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.home.TopLevelSettingsActivity")
+            	|| key.equals("top_level_wellbeing")){
+                preference.setLayoutResource(R.layout.top_level_preference_wellbeing_card);
+            } else if (key.equals("dashboard_tile_pref_com.google.android.gms.app.settings.GoogleSettingsIALink")
+            	|| key.equals("top_level_google")){
+                preference.setLayoutResource(R.layout.top_level_preference_google_card);
+                gAppsExists = true;
+            } else if (key.equals("top_level_accounts") && gAppsExists){
+                preference.setLayoutResource(R.layout.top_level_preference_middle_card);
+            } else {
+                preference.setLayoutResource(R.layout.top_level_preference_bottom_card);
             }
             break;
         default:
