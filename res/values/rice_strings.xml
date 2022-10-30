@@ -37,7 +37,7 @@
     <string name="connectivity_category_title">connectivity</string>
     
     <string name="navbar_gesture_custom">Navigation Gestures Customizations</string>
-    <string name="usercard_summary">Certified riceDroid user</string>
+    <string name="usercard_summary">Device owner</string>
     
      <!-- About page -->
     <string name="battery">Battery</string>
@@ -170,5 +170,6 @@
     <string name="daily_battery_usage_chart_summary">View usage for past 24 hours</string>
     
     <string name="volume_style_title">Volume panel styles</string>
+    <string name="my_device_settings">My device</string>
 </resources>
 

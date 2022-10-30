@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height_oos"
-    android:layout_marginStart="@dimen/card_margin_start"
-    android:layout_marginEnd="@dimen/card_margin_end"
+    android:layout_marginStart="@dimen/card_margin_start_aqua"
+    android:layout_marginEnd="@dimen/card_margin_end_aqua"
     android:background="@drawable/oos_preference_background_top"
     android:paddingStart="18dp">
 
@@ -35,7 +35,7 @@
             android:layout_marginTop="2dp"
             android:singleLine="true"
             style="@style/op_control_text_style_h6"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@android:id/summary"
@@ -45,8 +45,8 @@
             android:singleLine="true" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:paddingHorizontal="16dp"
             android:layout_marginEnd="16dp"
             android:layout_alignParentEnd="true"
@@ -55,11 +55,11 @@
             app:cardCornerRadius="99dp">
         
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_arrow"
-                    android:tint="@color/op_control_text_color_secondary" />    
+                    android:tint="@color/op_control_text_color_primary_translucent" />   
         
         </androidx.cardview.widget.CardView>
 

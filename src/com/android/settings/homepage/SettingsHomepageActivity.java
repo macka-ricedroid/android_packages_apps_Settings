@@ -184,6 +184,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         Context context = getApplicationContext();
 
         final boolean useStockLayout = getuseStockLayout();
+        final boolean isUserCardDisabled = getUserCardState();
         final boolean messagesEnabled = getMessagesSettings();
 
         setContentView(useStockLayout  ? R.layout.settings_homepage_container_stock
@@ -213,7 +214,7 @@ public class SettingsHomepageActivity extends FragmentActivity implements
 
         avatarView = findViewById(R.id.account_avatar);
 
-        if (avatarView != null) {
+        if (avatarView != null && useStockLayout && isUserCardDisabled) {
           avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
           avatarView.setVisibility(View.VISIBLE);
           avatarView.setOnClickListener(new View.OnClickListener() {
@@ -732,11 +733,20 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     public void onResume() {
         super.onResume();
         final boolean useStockLayout = getuseStockLayout();
-        if (useStockLayout) {
+        final boolean isUserCardDisabled = getUserCardState();
+	
+        if (useStockLayout && isUserCardDisabled) {
             avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
         }
     }
 
+    private boolean getUserCardState() { 
+        final Context context = getApplicationContext();
+        return Settings.System.getIntForUser(context.getContentResolver(),
+                "hide_user_card", 0,
+                UserHandle.USER_CURRENT) != 0;
+   }
+                
     private boolean getuseStockLayout() { 
         final Context context = getApplicationContext();
         return Settings.System.getIntForUser(context.getContentResolver(),

@@ -70,7 +70,8 @@ Copyright (C) The 2022 RiceDroid Project
                         android:gravity="start|center_vertical"
                         android:layout_gravity="start|center_vertical"
                         android:scrollHorizontally="true"
-                        android:singleLine="true"
+                        android:maxLength="12"
+                        android:maxLines="1"
                         android:textColor="?android:attr/colorAccent"
                         android:textSize="16sp" />
                         

@@ -14,8 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardElevation="0dp"
-        app:cardBackgroundColor="@color/user_crd_bg"
-        app:cardCornerRadius="12dp">
+        app:cardCornerRadius="22dp"
+        app:cardBackgroundColor="#00000000"
+        >
 
     <ImageView
         android:id="@android:id/icon"
@@ -71,7 +72,7 @@
             android:id="@android:id/summary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="6dp"
             android:textSize="13sp"
             android:text="@string/usercard_summary"
             android:singleLine="true"

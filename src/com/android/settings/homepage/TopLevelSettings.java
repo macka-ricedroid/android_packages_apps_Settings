@@ -241,26 +241,26 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 	    case 0:
 	    if (key.equals("top_level_usercard")){
 	        preference.setLayoutResource(R.layout.usercard);
-	    } else if (key.equals("usercard_space")){
-                preference.setLayoutResource(R.layout.usercard_space);
             } else if (key.equals("top_level_network")
             	|| key.equals("top_level_rice")
             	|| key.equals("top_level_apps")
             	|| key.equals("top_level_accessibility")
-            	|| key.equals("top_level_emergency")
-            	|| key.equals("top_level_system")){
+            	|| key.equals("top_level_emergency")){
                 preference.setLayoutResource(R.layout.top_level_preference_top);
             } else if (key.equals("top_level_battery")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_security")
             	|| key.equals("top_level_privacy")
             	|| key.equals("top_level_storage")
+            	|| key.equals("top_level_system")
             	|| key.equals("top_level_notifications")){
                 preference.setLayoutResource(R.layout.top_level_preference_middle);
             } else if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")
             	|| key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.home.TopLevelSettingsActivity")
             	|| key.equals("top_level_wellbeing")){
                 preference.setLayoutResource(R.layout.top_level_preference_wellbeing);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.top_level_preference_about);
             } else if (key.equals("dashboard_tile_pref_com.google.android.gms.app.settings.GoogleSettingsIALink")
             	|| key.equals("top_level_google")){
                 preference.setLayoutResource(R.layout.top_level_preference_google);
@@ -273,23 +273,25 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             break;
        case 1:
 	    if (key.equals("top_level_usercard")){
-	        preference.setLayoutResource(R.layout.usercard_oos);
+	        preference.setLayoutResource(R.layout.usercard_round);
 	    } else if (key.equals("top_level_divider_one")){
                 // nothing to do here
             } else if (key.equals("top_level_network")
             	|| key.equals("top_level_rice")
             	|| key.equals("top_level_apps")
             	|| key.equals("top_level_accessibility")
-            	|| key.equals("top_level_emergency")
-            	|| key.equals("top_level_system")){
+            	|| key.equals("top_level_emergency")){
                 preference.setLayoutResource(R.layout.top_level_preference_oos_top);
             } else if (key.equals("top_level_battery")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_security")
             	|| key.equals("top_level_privacy")
             	|| key.equals("top_level_storage")
+            	|| key.equals("top_level_system")
             	|| key.equals("top_level_notifications")){
                 preference.setLayoutResource(R.layout.top_level_preference_oos_middle);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.top_level_preference_about);
             } else if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")
             	|| key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.home.TopLevelSettingsActivity")
             	|| key.equals("top_level_wellbeing")){
@@ -306,7 +308,7 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             break;
 	case 2:
 	    if (key.equals("top_level_usercard")){
-	        preference.setLayoutResource(R.layout.usercard_arc);
+	        preference.setLayoutResource(R.layout.usercard_transparent);
             } else if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")
             	|| key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.home.TopLevelSettingsActivity")
             	|| key.equals("top_level_wellbeing")){
@@ -314,6 +316,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             } else if (key.equals("dashboard_tile_pref_com.google.android.gms.app.settings.GoogleSettingsIALink")
             	|| key.equals("top_level_google")){
                 preference.setLayoutResource(R.layout.top_level_preference_google_arc);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.top_level_preference_about);
             } else if (key.equals("top_level_divider_one_rui")) {
             	// do nothing
             } else {
@@ -322,32 +326,36 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
             break;
 	case 3:
 	    if (key.equals("top_level_usercard")){
-	        preference.setLayoutResource(R.layout.usercard_rui);
+	        preference.setLayoutResource(R.layout.usercard_transparent);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.top_level_preference_about);
             } else if (key.equals("top_level_divider_one_rui")) {
             	// do nothing
             }
 	    break;
         case 4:
 	    if (key.equals("top_level_usercard")){
-	        preference.setLayoutResource(R.layout.usercard_mt);
+	        preference.setLayoutResource(R.layout.usercard_round);
             } else if (key.equals("top_level_network")
             	|| key.equals("top_level_rice")
             	|| key.equals("top_level_apps")
             	|| key.equals("top_level_accessibility")
-            	|| key.equals("top_level_emergency")
-            	|| key.equals("top_level_system")){
+            	|| key.equals("top_level_emergency")){
                 preference.setLayoutResource(R.layout.top_level_preference_mt_top);
             } else if (key.equals("top_level_battery")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_security")
             	|| key.equals("top_level_privacy")
             	|| key.equals("top_level_storage")
+            	|| key.equals("top_level_system")
             	|| key.equals("top_level_notifications")){
                 preference.setLayoutResource(R.layout.top_level_preference_mt_middle);
             } else if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")
             	|| key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.home.TopLevelSettingsActivity")
             	|| key.equals("top_level_wellbeing")){
                 preference.setLayoutResource(R.layout.top_level_preference_wellbeing_mt);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.top_level_preference_about);
             } else if (key.equals("dashboard_tile_pref_com.google.android.gms.app.settings.GoogleSettingsIALink")
             	|| key.equals("top_level_google")){
                 preference.setLayoutResource(R.layout.top_level_preference_google_mt);
@@ -363,20 +371,20 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
 	case 5:
 	    if (key.equals("top_level_usercard")){
 	        preference.setLayoutResource(R.layout.usercard_round);
-	    } else if (key.equals("usercard_space")){
-                preference.setLayoutResource(R.layout.usercard_space);
+            } else if (key.equals("top_level_about_device")){
+                preference.setLayoutResource(R.layout.top_level_preference_about);
             } else if (key.equals("top_level_network")
             	|| key.equals("top_level_rice")
             	|| key.equals("top_level_apps")
             	|| key.equals("top_level_accessibility")
-            	|| key.equals("top_level_emergency")
-            	|| key.equals("top_level_system")){
+            	|| key.equals("top_level_emergency")){
                 preference.setLayoutResource(R.layout.top_level_preference_top_card);
             } else if (key.equals("top_level_battery")
             	|| key.equals("top_level_display")
             	|| key.equals("top_level_security")
             	|| key.equals("top_level_privacy")
             	|| key.equals("top_level_storage")
+            	|| key.equals("top_level_system")
             	|| key.equals("top_level_notifications")){
                 preference.setLayoutResource(R.layout.top_level_preference_middle_card);
             } else if (key.equals("dashboard_tile_pref_com.google.android.apps.wellbeing.settings.TopLevelSettingsActivity")
@@ -509,9 +517,9 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         final LayoutPreference headerPreference =
                 (LayoutPreference) getPreferenceScreen().findPreference(KEY_USER_CARD);
         final Activity context = getActivity();
-        final boolean useStockLayout = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.USE_STOCK_LAYOUT, 0, UserHandle.USER_CURRENT) != 0;
-        if (useStockLayout && headerPreference != null) {
+        final boolean DisableUserCard = Settings.System.getIntForUser(context.getContentResolver(),
+                "hide_user_card", 0, UserHandle.USER_CURRENT) != 0;
+        if (DisableUserCard && headerPreference != null) {
         getPreferenceScreen().removePreference(headerPreference);
         } else {
         if (headerPreference != null) {
@@ -545,8 +553,8 @@ public class TopLevelSettings extends DashboardFragment implements SplitLayoutLi
         }
 
         controller.done(context, true /* rebindActions */);
-    }
-    }
+        }
+      }
     }
 
     @Override

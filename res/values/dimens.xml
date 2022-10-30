@@ -119,8 +119,8 @@
 
     <!-- Search bar -->
     <dimen name="search_bar_margin">16dp</dimen>
-    <dimen name="search_bar_height">52dp</dimen>
-    <dimen name="search_bar_text_size">20sp</dimen>
+    <dimen name="search_bar_height">40dp</dimen>
+    <dimen name="search_bar_text_size">14sp</dimen>
     <dimen name="search_bar_corner_radius">28dp</dimen>
     <dimen name="search_bar_content_inset">56dp</dimen>
     <dimen name="search_bar_padding_start">4dp</dimen>
@@ -138,7 +138,7 @@
 
     <!-- Homepage -->
     <!-- avatar_length + avatar_margin_top -->
-    <dimen name="homepage_title_margin_top">104dp</dimen>
+    <dimen name="homepage_title_margin_top">0dp</dimen>
     <dimen name="homepage_title_margin_bottom">8dp</dimen>
     <dimen name="homepage_title_margin_horizontal">24dp</dimen>
     <dimen name="homepage_padding_horizontal_two_pane">24dp</dimen>
@@ -146,7 +146,7 @@
     <dimen name="homepage_preference_min_height">88sp</dimen>
     <dimen name="homepage_preference_icon_padding_start">32dp</dimen>
     <dimen name="homepage_preference_icon_padding_start_two_pane">8dp</dimen>
-    <dimen name="homepage_preference_text_padding_start">16dp</dimen>
+    <dimen name="homepage_preference_text_padding_start">20dp</dimen>
     <dimen name="homepage_preference_text_padding_start_two_pane">24dp</dimen>
     <dimen name="homepage_app_bar_corner_radius">32dp</dimen>
     <dimen name="homepage_app_bar_padding_two_pane">6dp</dimen>
@@ -516,13 +516,16 @@
     <dimen name="card_padding_end">70.0dp</dimen>
     <dimen name="card_height">75.0dp</dimen>
     <dimen name="card_height_rui">75.0dp</dimen>
-    <dimen name="card_height_wave">75.0dp</dimen>
+    <dimen name="card_height_round">75.0dp</dimen>
     <dimen name="card_radius_wave">22dp</dimen>
     <dimen name="card_radius">12dp</dimen>
     <dimen name="dashboard_icon_size">42dp</dimen>
     <dimen name="top_pref_start">60dp</dimen>
     <dimen name="card_height_oos">70.0dp</dimen>
-    
+
+    <dimen name="card_margin_start_aqua">20dp</dimen>
+    <dimen name="card_margin_end_aqua">20dp</dimen>
+
     <dimen name="default_margin">16dp</dimen>
     <dimen name="default_padding">16dp</dimen>
 </resources>
