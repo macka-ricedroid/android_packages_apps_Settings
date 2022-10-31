@@ -105,12 +105,20 @@ public class SettingsBaseActivity extends FragmentActivity implements CategoryHa
         }
 
         if (isToolbarEnabled() && !isAnySetupWizard) {
-        boolean mCustomSettingsLayoutEnabled = Settings.System.getIntForUser(getApplicationContext().getContentResolver(),
-            "custom_settings_layout", 0, UserHandle.USER_CURRENT) != 0;
-         if (mCustomSettingsLayoutEnabled) {
+        int mCustomSettingsBaseLayout = Settings.System.getIntForUser(getApplicationContext().getContentResolver(),
+            "custom_settings_layout", 0, UserHandle.USER_CURRENT);
+         if (mCustomSettingsBaseLayout == 0) {
+            super.setContentView(R.layout.collapsing_toolbar_base_layout);
+          } else if (mCustomSettingsBaseLayout == 1) {
+            super.setContentView(R.layout.collapsing_toolbar_compact_base_layout);
+          } else if (mCustomSettingsBaseLayout == 2) {
             super.setContentView(R.layout.xd_base_layout);
+          } else if (mCustomSettingsBaseLayout == 3) {
+            super.setContentView(R.layout.xd_base_compact_layout);
+          } else if (mCustomSettingsBaseLayout == 4) {
+            super.setContentView(R.layout.xd_base_compact_layout_not_expanded);
           } else {
-            super.setContentView(R.layout.collapsing_toolbar_secondary_base_layout);
+            super.setContentView(R.layout.collapsing_toolbar_compact_base_layout_not_expanded);
          }
             mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
             mAppBarLayout = findViewById(R.id.app_bar);

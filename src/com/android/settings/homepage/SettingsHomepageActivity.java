@@ -183,18 +183,38 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         super.onCreate(savedInstanceState);
         Context context = getApplicationContext();
 
-        final boolean useStockLayout = getuseStockLayout();
+        final int homepageSettingsLayout = getHomepageSettingsLayout();
         final boolean isUserCardDisabled = getUserCardState();
         final boolean messagesEnabled = getMessagesSettings();
 
-        setContentView(useStockLayout  ? R.layout.settings_homepage_container_stock
-                                       : R.layout.settings_homepage_container);
+	switch (homepageSettingsLayout) {
+		// stock aosp collapsing toolbar
+		case 0:
+		  setContentView(R.layout.settings_homepage_container_stock_aosp);
+		break;
+		// compact aosp collapsing toolbar
+		case 1:
+		  setContentView(R.layout.settings_homepage_container_compact_aosp);
+		break;
+		// legacy oos/octavi collapsing toolbar with high toolbar gap 
+		case 2:
+		  setContentView(R.layout.settings_homepage_container_oos);
+		break;
+		// legacy oos/octavi collapsing toolbar with small toolbar gap 
+		case 3:
+		  setContentView(R.layout.settings_homepage_container_compact_oos);
+		break;
+		default:
+		break;
+	}
+		
+
 
 
         updateHomepageBackground();
         mLoadedListeners = new ArraySet<>();
         final String highlightMenuKey = getHighlightMenuKey();
-        if (useStockLayout) {
+        if (homepageSettingsLayout == 0 || homepageSettingsLayout == 1) {
         
         mIsEmbeddingActivityEnabled = ActivityEmbeddingUtils.isEmbeddingActivityEnabled(this);
         if (mIsEmbeddingActivityEnabled) {
@@ -214,7 +234,8 @@ public class SettingsHomepageActivity extends FragmentActivity implements
 
         avatarView = findViewById(R.id.account_avatar);
 
-        if (avatarView != null && useStockLayout && isUserCardDisabled) {
+        if (avatarView != null && homepageSettingsLayout == 0 && isUserCardDisabled
+        	|| avatarView != null && homepageSettingsLayout == 1 && isUserCardDisabled) {
           avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
           avatarView.setVisibility(View.VISIBLE);
           avatarView.setOnClickListener(new View.OnClickListener() {
@@ -406,10 +427,11 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Context context = getApplicationContext();
-        final boolean useStockLayout = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.USE_STOCK_LAYOUT, 0, UserHandle.USER_CURRENT) != 0;
+        final int homepageSettingsLayout = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.USE_STOCK_LAYOUT, 0, UserHandle.USER_CURRENT);
 
-        if (useStockLayout) {
+	// AOSP
+        if (homepageSettingsLayout == 0) {
         final boolean newTwoPaneState = mSplitController.isActivityEmbedded(this);
         if (mIsTwoPane != newTwoPaneState) {
             mIsTwoPane = newTwoPaneState;
@@ -732,10 +754,11 @@ public class SettingsHomepageActivity extends FragmentActivity implements
     @Override
     public void onResume() {
         super.onResume();
-        final boolean useStockLayout = getuseStockLayout();
+        final int homepageSettingsLayout = getHomepageSettingsLayout();
         final boolean isUserCardDisabled = getUserCardState();
 	
-        if (useStockLayout && isUserCardDisabled) {
+	// marker - aosp avatar hide method (stock aosp and compact aosp)
+        if (homepageSettingsLayout == 0 && isUserCardDisabled || homepageSettingsLayout == 1 && isUserCardDisabled) {
             avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
         }
     }
@@ -747,11 +770,11 @@ public class SettingsHomepageActivity extends FragmentActivity implements
                 UserHandle.USER_CURRENT) != 0;
    }
                 
-    private boolean getuseStockLayout() { 
+    private int getHomepageSettingsLayout() { 
         final Context context = getApplicationContext();
         return Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.USE_STOCK_LAYOUT, 0,
-                UserHandle.USER_CURRENT) != 0;
+                UserHandle.USER_CURRENT);
    }
    
     private boolean getMessagesSettings() {
