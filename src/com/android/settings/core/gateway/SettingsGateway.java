@@ -399,6 +399,7 @@ public class SettingsGateway {
             UserBackupSettingsActivity.class.getName(),
             Settings.riceDroidSettingsLayoutActivity.class.getName(),
             Settings.DevRunningServicesActivity.class.getName(),
-            Settings.SmartPixelsActivity.class.getName()
+            Settings.SmartPixelsActivity.class.getName(),
+            Settings.PreviouslyConnectedDeviceDashboardActivity.class.getName()
     };
 }
